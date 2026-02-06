@@ -30,13 +30,13 @@ function setup() {
   enemy_beam.lifetime = 1; 
   slash = createSprite(400, height/2 - 100, 50, 50);
   slash.lifetime = 1;
-  player = createSprite(width/2, height/2 - 100, 50, 50);
+  player = createSprite(width/2, height*3/4 - 100, 50, 50);
   player.shapeColor = rgb(0,0,150);
   medkit = createSprite(1400, 550, 50, 50);
   medkit.lifetime = 1;
   energy = createSprite(1400, 550, 50, 50);
   energy.lifetime = 1;
-  bottom = createSprite(width/2,height*3/4,windowWidth,height/2);
+  bottom = createSprite(width/2,height*7/8,windowWidth,height/4);
   bottom.shapeColor = rgb(147,110,79);
   cooldown = 0;
   pastPosition = player.x - 1;
@@ -73,7 +73,7 @@ function setup() {
   gameState = "on";
   total = 10;
   for (var i = 0; i < windowWidth + 64; i+=128) {
-    ground = createSprite(i,height*1/2,50,50);
+    ground = createSprite(i,height*3/4,50,50);
     ground.addImage("ground",ground_img);
     groundGroup.add(ground);
   }
@@ -459,10 +459,10 @@ function enemySpawn() {
     
     amount = amount + 1;
     if (amount%2 === 1){
-      enemy = createSprite(width*19/20, height/2 - 100, 50, 50);
+      enemy = createSprite(width*19/20, height*3/4 - 100, 50, 50);
       enemy.velocityX = -2;
     } else {
-      enemy = createSprite(width/20, height/2 - 100, 50, 50);
+      enemy = createSprite(width/20, height*3/4 - 100, 50, 50);
       enemy.velocityX = 2;
     }
     randomness = Math.random(0,1);
@@ -575,37 +575,3 @@ function enemyMovement() {
     
     
   }
-
-  
-/*function (img_ref) { 
-    var img = $(img_ref);
-    img.on('load', function () {
-	
-	img.css("width", "auto");
-	img.css("height", "auto");
-	
-	var maxWidth = 180; // Max width for the image
-	var maxHeight = 180;    // Max height for the image
-	var ratio = 0;  // Used for aspect ratio
-	var width = img.width();    // Current image width
-	var height = img.height();  // Current image height
-
-	if (width > maxWidth && width > height) {
-	    
-	    ratio = width / height;
-	    img.css("height", maxWidth/ratio);
-	    img.css("width", maxWidth); // Set new width
-
-	}else  if (height > maxHeight && height > width){
-	    
-	    ratio = height / width;
-	    img.css("width", maxHeight/ratio);
-	    img.css("height", maxHeight);
-	}else {
-
-	    img.css("width", maxWidth);
-	    img.css("height", maxHeight);
-	}
-	
-    });
-}*/
